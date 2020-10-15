@@ -10,11 +10,9 @@ class EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
-    @dogs = Dog.all
   end
 
   def edit
-    @dogs = Dog.all
   end
 
   def create
