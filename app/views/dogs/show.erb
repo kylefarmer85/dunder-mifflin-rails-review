@@ -1,8 +1,9 @@
 <h1><%= @dog.name %></h1>
-Breed: <%= @dog.breed %><br>
-Age: <%= @dog.age %><br><br>
-Belongs to:
-<% @dog.employees.each do |employee| %><br>
+<ul>
+<li>Breed: <%= @dog.breed %><br>
+<li>Age: <%= @dog.age %><br>
+<li>Belongs to: 
+<% @dog.employees.each do |employee| %>
   <%= link_to "#{employee.first_name} #{employee.last_name}", employee_path(employee) %>
 <% end %><br><br>
 <strong><%= link_to "Return to Dogs", dogs_path %></strong>

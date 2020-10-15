@@ -1,6 +1,7 @@
 <h1>Dogs</h1>
+<ul>
 <% @dogs.each do |dog| %>
-  <%= link_to dog.name, dog_path(dog) %><br><br>
-<% end %>
+ <li><%= link_to dog.name, dog_path(dog) %><br><br>
+<% end %><ul>
 
 <h3><%= link_to "Go to Employees", employees_path %></h3>
