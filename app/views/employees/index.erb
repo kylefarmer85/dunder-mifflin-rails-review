@@ -2,3 +2,10 @@
 <% @employees.each do |employee| %>
   <%= link_to "#{employee.first_name} #{employee.last_name}", employee_path(employee) %><br><br>
 <% end %>
+
+<% flash.each do |type, msg| %>
+   <h3 style="color:red;"><%= msg %></h3>
+<% end %>
+
+<h3><%= link_to "Create New Employee", new_employee_path %></h3>
+<h3><%= link_to "Go to Dogs", dogs_path %></h3>

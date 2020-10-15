@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  before_action :set_employee!, only: [:show, :edit, :update]
+  before_action :set_employee!, only: [:show, :edit, :update, :destroy]
 
   def index
     @employees = Employee.all 
@@ -10,16 +10,15 @@ class EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
-    
   end
 
   def edit
   end
 
   def create
-    employee = Employee.new(employee_params)
-    if employee.save
-      redirect_to employee_path(employee)
+    @employee = Employee.create(employee_params)
+    if @employee.save
+      redirect_to employee_path(@employee)
     else
       render :new
     end
@@ -33,6 +32,12 @@ class EmployeesController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @employee.destroy
+    redirect_to employees_path, notice: "Employee Deleted!"
+  end
+
 
   private
 
