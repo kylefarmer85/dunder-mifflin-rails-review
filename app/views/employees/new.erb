@@ -35,7 +35,7 @@
   <%= f.text_field :img_url %><br><br>
 
   <%= f.label "Select a dog:"%>
-  <%= f.collection_select :dog_id, Dog.all, :id, :name, prompt: true %><br><br>
+  <%= f.collection_select :dog_id, @dogs, :id, :name, prompt: true %><br><br>
   
   <%= f.submit %>
 
