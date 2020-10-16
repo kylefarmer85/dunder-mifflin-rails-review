@@ -8,5 +8,9 @@ class DogsController < ApplicationController
     @dog = Dog.find(params[:id])
   end
 
+  def sort_dogs
+    @dogs = Dog.sort_by_employees
+    render :index
+  end
 
 end

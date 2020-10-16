@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  before_action :set_employee!, only: [:show, :edit, :update, :destroy]
+  before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   def index
     @employees = Employee.all 
@@ -10,16 +10,19 @@ class EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
+    @dogs = Dog.all
   end
 
   def edit
+    @dogs = Dog.all
   end
 
   def create
-    @employee = Employee.create(employee_params)
+    @employee = Employee.new(employee_params)
     if @employee.save
       redirect_to employee_path(@employee)
     else
+      
       render :new
     end
   end
@@ -42,10 +45,10 @@ class EmployeesController < ApplicationController
   private
 
   def employee_params
-    params.require(:employee).permit!
+    params.require(:employee).permit(:first_name, :last_name, :alias, :title, :office, :img_url, :dog_id)
   end
 
-  def set_employee!
+  def set_employee
     @employee = Employee.find(params[:id])
   end
 

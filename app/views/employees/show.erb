@@ -2,10 +2,12 @@
 
 <img src=<%=@employee.img_url%>><br>
 <ul>
-<li>Alias: <%= @employee.alias %><br>
-<li>Title: <%= @employee.title %><br>
-<li>Office: <%= @employee.office %><br>
-<li>Dog: <%= link_to @employee.dog.name, dog_path(@employee.dog) %><br><br><br></ul>
+  <li>Alias: <%= @employee.alias %><br>
+  <li>Title: <%= @employee.title %><br>
+  <li>Office: <%= @employee.office %><br>
+  <li>Dog: <%= link_to @employee.dog.name, dog_path(@employee.dog) %>
+  <br><br><br>
+</ul>
 
 <%= button_to "Delete Employee", employee_path(@employee), method: "delete" %><br><br>
 
